@@ -1,2 +1,1 @@
-My latest Flutter Project
-Probably my favorite one so far
+My latest Flutter Project. Probably my favorite one so far
