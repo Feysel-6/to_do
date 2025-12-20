@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mapp/ui/core/themes/colors.dart';
 import 'package:flutter_mapp/ui/core/themes/dimens.dart';
-import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
 import 'categories_bottom_sheet.dart';
 import 'note_card.dart';
 

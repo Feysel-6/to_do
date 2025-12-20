@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
 import 'package:flutter_mapp/ui/profile/widgets/profile_screen.dart';
 
 import 'ui/home/widgets/home_screen.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mapp/ui/core/themes/dimens.dart';
-import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
 
 import '../../../core/dependencies.dart';
 
