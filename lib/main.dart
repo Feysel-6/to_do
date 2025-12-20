@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mapp/core/dependencies.dart';
+import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
 import 'navigation_wrapper.dart';
 
 void main() {
@@ -10,9 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: NavigationWrapper(),
+    return HomeViewModelProvider(
+      viewModel: HomeViewModel(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: NavigationWrapper(),
+      ),
     );
   }
 }
