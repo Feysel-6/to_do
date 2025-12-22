@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
+import 'package:flutter_mapp/ui/note/view_models/note_viewmodel.dart';
 
 class HomeViewModelProvider extends InheritedWidget {
   const HomeViewModelProvider({
@@ -19,6 +20,28 @@ class HomeViewModelProvider extends InheritedWidget {
 
   @override
   bool updateShouldNotify(HomeViewModelProvider oldWidget) {
+    return viewModel != oldWidget.viewModel;
+  }
+}
+
+class NoteViewModelProvider extends InheritedWidget {
+  const NoteViewModelProvider({
+    super.key,
+    required this.viewModel,
+    required super.child,
+  });
+
+  final NoteViewModel viewModel;
+
+  static NoteViewModel of(BuildContext context) {
+    final NoteViewModelProvider? provider = context
+        .dependOnInheritedWidgetOfExactType<NoteViewModelProvider>();
+    assert(provider != null, 'No NoteViewModelProvider found in context');
+    return provider!.viewModel;
+  }
+
+  @override
+  bool updateShouldNotify(NoteViewModelProvider oldWidget) {
     return viewModel != oldWidget.viewModel;
   }
 }

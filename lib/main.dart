@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mapp/core/dependencies.dart';
 import 'package:flutter_mapp/ui/home/view_models/home_viewmodel.dart';
+import 'package:flutter_mapp/ui/note/view_models/note_viewmodel.dart';
 import 'navigation_wrapper.dart';
 
 void main() {
@@ -14,9 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return HomeViewModelProvider(
       viewModel: HomeViewModel(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: NavigationWrapper(),
+      child: NoteViewModelProvider(
+        viewModel: NoteViewModel(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: NavigationWrapper(),
+        ),
       ),
     );
   }

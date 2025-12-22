@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mapp/ui/core/themes/dimens.dart';
 
 import '../../../core/dependencies.dart';
+import 'category_card.dart';
 
 class CategoriesBottomSheet extends StatelessWidget {
   const CategoriesBottomSheet({super.key});
@@ -19,15 +20,9 @@ class CategoriesBottomSheet extends StatelessWidget {
           Expanded(
             child: GridView.count(
               crossAxisCount: Dimens.categoryGridCount,
-              children: List.generate(
-                viewModel.colors.length,
-                (int index) => Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: ColoredBox(color: viewModel.colors[index]),
-                ),
-              ),
+              children: viewModel.colors.entries.map((element) {
+                return CategoryCard(element: element);
+              }).toList(),
             ),
           ),
         ],
@@ -41,6 +36,7 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = HomeViewModelProvider.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -51,7 +47,19 @@ class _Header extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Icon(Icons.edit, size: Dimens.headerFontSize),
+        ListenableBuilder(
+          listenable: viewModel,
+          builder: (BuildContext context, Widget? child) {
+            return IconButton(
+              onPressed: () {
+                viewModel.toggleEditing();
+              },
+              icon: viewModel.isEditing
+                  ? Icon(Icons.save, size: Dimens.headerFontSize)
+                  : Icon(Icons.edit, size: Dimens.headerFontSize),
+            );
+          },
+        ),
       ],
     );
   }
