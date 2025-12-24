@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mapp/ui/core/themes/dimens.dart';
 
+import '../../../core/widgets/submit_button.dart';
 import '../../core/themes/colors.dart';
 
 class SettingsContainer extends StatelessWidget {
@@ -25,36 +26,14 @@ class SettingsContainer extends StatelessWidget {
           _SectionTitle(title: 'App Setting'),
           _SettingItem(title: 'Load Data', icon: Icons.cloud_upload,),
           const Spacer(),
-          _SyncButton(),
+          CButton(title: 'Sync',),
         ],
       ),
     );
   }
 }
 
-class _SyncButton extends StatelessWidget {
-  const _SyncButton();
 
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.green,
-            padding: EdgeInsets.all(Dimens.padding),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(12)),
-            ),
-          ),
-          child: Text('Sync', style: TextStyle(color: Colors.white),),
-        ),
-      ),
-    );
-  }
-}
 
 class _SettingItem extends StatelessWidget {
   const _SettingItem({

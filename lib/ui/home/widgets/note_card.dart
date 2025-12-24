@@ -3,7 +3,6 @@ import 'package:flutter_mapp/ui/core/themes/colors.dart';
 import 'package:flutter_mapp/ui/core/themes/dimens.dart';
 import 'package:flutter_mapp/ui/note/widgets/note_screen.dart';
 
-import '../../../core/assets.dart';
 import '../../../domain/models/note.dart';
 
 class NoteCard extends StatelessWidget {
@@ -27,8 +26,8 @@ class NoteCard extends StatelessWidget {
           footer: Container(
             decoration: BoxDecoration(color: AppColors.primary),
             child: ListTile(
-              title: Text(note.title,),
-              subtitle: Text(note.date,),
+              title: Text(note.title, maxLines: 1, overflow: TextOverflow.ellipsis,),
+              subtitle: Text(note.date),
               trailing: const Icon(Icons.more_vert),
             ),
           ),

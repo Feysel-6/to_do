@@ -26,7 +26,12 @@ class HomeScreen extends StatelessWidget {
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
-        title: const Text('Note'),
+        title: ValueListenableBuilder(
+          valueListenable: viewModel.selectedCategory,
+          builder: (context, value, child) {
+            return Text(viewModel.selectedCategory.value ?? 'Note');
+          }
+        ),
         centerTitle: true,
         backgroundColor: AppColors.primary,
         actions: [
